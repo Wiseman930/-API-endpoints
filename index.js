@@ -9,6 +9,10 @@ const theColorTemplate = Handlebars.compile(colorTemplateText.innerText);
 const brandTemplateText = document.querySelector('.brandTemplate');
 const theBrandTemplate = Handlebars.compile(brandTemplateText.innerText);
 
+const filterTemplateText = document.querySelector('.filterTemplate');
+const theFilterTemplate = Handlebars.compile(filterTemplateText.innerText);
+
+
 //Element for cars
 const carsElem = document.querySelector('.cars');
 //Element for color
@@ -17,6 +21,8 @@ const colorElem = document.querySelector('.colors');
 const brandElem = document.querySelector('.brand');
 //Filtering Element
 const filterElem = document.querySelector('.filter');
+//filterbutton
+const chooseCity = document.querySelector(".townsname")
 
 //Filtering
 carsElem.addEventListener('click', function(evt){
@@ -52,3 +58,20 @@ axios
         brand
     });
 });
+
+
+function changeYourOption(){
+
+axios
+.get(`http://api-tutor.herokuapp.com/v1/cars/make/${chooseCity.value}`)
+.then(result => {
+    const make = result.data;
+    console.log(make)
+
+    filterElem.innerHTML = theFilterTemplate({
+        make
+    });
+});
+}
+chooseCity.addEventListener('change', changeYourOption)
+

@@ -35,6 +35,14 @@
         {{/each}}
     </script>
 
+    <script class="filterTemplate" type="text/template-x">
+        {{#each make}}
+        <tr>
+            <td>{{model}}</td>
+        </tr>
+        {{/each}}
+    </script>
+
     <script src="index.js" defer></script>
 
 </head>
@@ -79,9 +87,27 @@
     </table>
 
     <h2>Filtering</h2>
-    <div class="filter">
-
+    <div class="town">
+        <label class="townText" for="towns">Select Makes </label>
+        <select name="towns" class="townsname" type="onchange" aria-label="State">
+            <option >Filter</option>
+            <option value="Ford">Ford</option>
+            <option value="Nissan">Nissan</option>
+            <option value="Toyota">Toyota</option>
+            <option value="Nissan">Nissan</option>
+            <option value="Volkswagen">Volkswagen</option>
+        </select>
     </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Makes</th>
+            </tr>
+        </thead>
+        <tbody class="filter">
+            <!-- Put data from the API in here -->
 
+        </tbody>
+    </table>
 </body>
 </html>
