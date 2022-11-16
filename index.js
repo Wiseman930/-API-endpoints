@@ -22,7 +22,7 @@ const brandElem = document.querySelector('.brand');
 //Filtering Element
 const filterElem = document.querySelector('.filter');
 //filterbutton
-const chooseCity = document.querySelector(".townsname")
+const chooseMake = document.querySelector(".filters")
 
 //Filtering
 carsElem.addEventListener('click', function(evt){
@@ -63,15 +63,14 @@ axios
 function changeYourOption(){
 
 axios
-.get(`http://api-tutor.herokuapp.com/v1/cars/make/${chooseCity.value}`)
+.get(`http://api-tutor.herokuapp.com/v1/cars/make/${chooseMake.value}`)
 .then(result => {
     const make = result.data;
-    console.log(make)
 
     filterElem.innerHTML = theFilterTemplate({
         make
     });
 });
 }
-chooseCity.addEventListener('change', changeYourOption)
+chooseMake.addEventListener('change', changeYourOption)
 
