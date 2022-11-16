@@ -4,20 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js" integrity="sha512-0qU9M9jfqPw6FKkPafM3gy2CBAvUWnYVOfNPDYKVuRTel1PrciTj+a9P3loJB+j0QmN2Y0JYQmkBBS8W+mbezg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Cars API</title>
 
+<div class="display">
     <!-- for the Cars -->
+    <div>
     <script class="carsTemplate" type="text/template-x">
         {{#each cars}}
         <tr>
-            <td>{{make}}</td>
+            <td>{{model}}</td>
         </tr>
         {{/each}}
     </script>
+    </div>
 
     <!-- For the colors -->
+    <div>
     <script class="colorsTemplate" type="text/template-x">
         {{#each color}}
         <tr>
@@ -25,8 +30,10 @@
         </tr>
         {{/each}}
     </script>
+    </div>
 
     <!-- For the brands -->
+    <div>
     <script class="brandTemplate" type="text/template-x">
         {{#each brand}}
         <tr>
@@ -34,6 +41,8 @@
         </tr>
         {{/each}}
     </script>
+    </div>
+</div>
 
     <script class="filterTemplate" type="text/template-x">
         {{#each make}}
@@ -55,11 +64,13 @@
 
 </head>
 <body>
+    <div class="display">
+    <div>
     <h1>Cars API App</h1>
     <table>
         <thead>
             <tr>
-                <th>Cars</th>
+                <th>Car Models</th>
             </tr>
         </thead>
         <tbody class="cars">
@@ -67,7 +78,8 @@
 
         </tbody>
     </table>
-
+    </div>
+    <div>
     <h1>Color API app</h1>
     <table>
         <thead>
@@ -80,7 +92,9 @@
 
         </tbody>
     </table>
+    </div>
 
+    <div>
     <h1>Brand API app</h1>
     <table>
         <thead>
@@ -93,6 +107,8 @@
 
         </tbody>
     </table>
+    </div>
+</div>
 
     <h2>Filtering</h2>
     <div class="town">
