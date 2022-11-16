@@ -12,6 +12,9 @@ const theBrandTemplate = Handlebars.compile(brandTemplateText.innerText);
 const filterTemplateText = document.querySelector('.filterTemplate');
 const theFilterTemplate = Handlebars.compile(filterTemplateText.innerText);
 
+const filterTemplateTextColor = document.querySelector('.filterTemplateColor');
+const theFilterTemplateColor = Handlebars.compile(filterTemplateTextColor.innerText);
+
 
 //Element for cars
 const carsElem = document.querySelector('.cars');
@@ -23,6 +26,10 @@ const brandElem = document.querySelector('.brand');
 const filterElem = document.querySelector('.filter');
 //filterbutton
 const chooseMake = document.querySelector(".filters")
+
+//
+const chooseColor = document.querySelector(".filterColors")
+const filterElemColor = document.querySelector('.filterColor');
 
 //Filtering
 carsElem.addEventListener('click', function(evt){
@@ -73,4 +80,20 @@ axios
 });
 }
 chooseMake.addEventListener('change', changeYourOption)
+
+function changeYourColor(){
+
+    axios
+    .get(`http://api-tutor.herokuapp.com/v1/cars/color/${chooseColor.value}`)
+
+    .then(result => {
+        const color = result.data;
+        console.log(color)
+
+        filterElemColor.innerHTML = theFilterTemplateColor({
+            color
+        });
+    });
+    }
+    chooseColor.addEventListener('change', changeYourColor)
 

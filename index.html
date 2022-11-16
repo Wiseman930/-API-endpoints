@@ -43,6 +43,14 @@
         {{/each}}
     </script>
 
+    <script class="filterTemplateColor" type="text/template-x">
+        {{#each color}}
+        <tr>
+            <td>{{model}}</td>
+        </tr>
+        {{/each}}
+    </script>
+
     <script src="index.js" defer></script>
 
 </head>
@@ -100,10 +108,32 @@
     <table>
         <thead>
             <tr>
-                <th>Makes</th>
+                <th>Car Models</th>
             </tr>
         </thead>
         <tbody class="filter">
+            <!-- Put data from the API in here -->
+
+        </tbody>
+    </table>
+
+    <div class="town">
+        <label class="townText" for="towns">Select Makes </label>
+        <select name="towns" class="filterColors" type="onchange" aria-label="State">
+            <option >Filter</option>
+            <option value="Blue">Blue</option>
+            <option value="White">White</option>
+            <option value="Orange">Orange</option>
+            <option value="Red">Red</option>
+        </select>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Car Models</th>
+            </tr>
+        </thead>
+        <tbody class="filterColor">
             <!-- Put data from the API in here -->
 
         </tbody>
