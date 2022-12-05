@@ -39,7 +39,7 @@ carsElem.addEventListener('click', function(evt){
 axios
 .get("https://api-tutor.herokuapp.com/v1/cars")
 .then(result => {
-    const cars = result.data;
+    const cars = result.data
 
     carsElem.innerHTML = theCarsTemplate({
         cars
